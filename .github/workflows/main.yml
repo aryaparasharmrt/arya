@@ -12,8 +12,12 @@ on:
 
 jobs:
  triage:
-  runs-on: [windows, Linux]
+  runs-on: ${{ matrix.os }}
 
+  strategy:
+   matrix:
+    os: [windows-latestubuntu-latest]
+      
   steps:
    - name: Checkout Repository
      uses: actions/checkout@v2
